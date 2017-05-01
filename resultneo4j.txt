@@ -1,155 +1,31 @@
 Activite2-----------------------------------
 1-----------------------------------
 MATCH (m)<-[ACTED_IN]-({name: "Tom Hanks"}) RETURN m.title
- 
-m.title
-Charlie Wilson's War
-The Polar Express
-A League of Their Own
-Cast Away
-Apollo 13
-The Green Mile
-The Da Vinci Code
-Cloud Atlas
-That Thing You Do
-That Thing You Do
-Joe Versus the Volcano
-Sleepless in Seattle
-You've Got Mail
 
 2-----------------------------------
 MATCH ({title : "The Matrix"})<-[r :ACTED_IN]-() RETURN r.roles
- 
-r.roles
-[Emil]
-[Agent Smith]
-[Morpheus]
-[Trinity]
-[Neo]
 
 3-----------------------------------
 MATCH (m:Movie)
 RETURN m.title, m.released
 
-m.title	m.released
-The Matrix	1999
-The Matrix Reloaded	2003
-The Matrix Revolutions	2003
-The Devil's Advocate	1997
-A Few Good Men	1992
-Top Gun	1986
-Jerry Maguire	2000
-Stand By Me	1986
-As Good as It Gets	1997
-What Dreams May Come	1998
-Snow Falling on Cedars	1999
-You've Got Mail	1998
-Sleepless in Seattle	1993
-Joe Versus the Volcano	1990
-When Harry Met Sally	1998
-That Thing You Do	1996
-The Replacements	2000
-RescueDawn	2006
-The Birdcage	1996
-Unforgiven	1992
-Johnny Mnemonic	1995
-Cloud Atlas	2012
-The Da Vinci Code	2006
-V for Vendetta	2006
-Speed Racer	2008
-Ninja Assassin	2009
-The Green Mile	1999
-Frost/Nixon	2008
-Hoffa	1992
-Apollo 13	1995
-Twister	1996
-Cast Away	2000
-One Flew Over the Cuckoo's Nest	1975
-Something's Gotta Give	2003
-Bicentennial Man	1999
-Charlie Wilson's War	2007
-The Polar Express	2004
-A League of Their Own	1992
-
 Activite3-----------------------------------
 1-----------------------------------
 MATCH (a)-[ :ACTED_IN]->(m)<-[ :DIRECTED]-(a) RETURN a.name
- 
-a.name
-Tom Hanks
-Clint Eastwood
-Danny DeVito
 
 2-----------------------------------
 MATCH (a{name: "Keanu Reeves"})-[r :ACTED_IN {roles : ["Neo"]}]->(m) RETURN m.title
- 
-m.title
-The Matrix Revolutions
-The Matrix Reloaded
-The Matrix
 
 3-----------------------------------
 MATCH (a {name: "Tom Hanks"})-[ :ACTED_IN]->(m)<-[ :ACTED_IN]-(b) RETURN b.name, m.title
  
-b.name	m.title
-Julia Roberts	Charlie Wilson's War
-Philip Seymour Hoffman	Charlie Wilson's War
-Geena Davis	A League of Their Own
-Lori Petty	A League of Their Own
-Rosie O'Donnell	A League of Their Own
-Madonna	A League of Their Own
-Bill Paxton	A League of Their Own
-Helen Hunt	Cast Away
-Kevin Bacon	Apollo 13
-Gary Sinise	Apollo 13
-Ed Harris	Apollo 13
-Bill Paxton	Apollo 13
-Michael Clarke Duncan	The Green Mile
-Patricia Clarkson	The Green Mile
-Gary Sinise	The Green Mile
-Bonnie Hunt	The Green Mile
-David Morse	The Green Mile
-Sam Rockwell	The Green Mile
-James Cromwell	The Green Mile
-Paul Bettany	The Da Vinci Code
-Audrey Tautou	The Da Vinci Code
-Ian McKellen	The Da Vinci Code
-Jim Broadbent	Cloud Atlas
-Hugo Weaving	Cloud Atlas
-Halle Berry	Cloud Atlas
-Charlize Theron	That Thing You Do
-Liv Tyler	That Thing You Do
-Meg Ryan	Joe Versus the Volcano
-Nathan Lane	Joe Versus the Volcano
-Rosie O'Donnell	Sleepless in Seattle
-Bill Pullman	Sleepless in Seattle
-Victor Garber	Sleepless in Seattle
-Meg Ryan	Sleepless in Seattle
-Rita Wilson	Sleepless in Seattle
-Dave Chappelle	You've Got Mail
-Steve Zahn	You've Got Mail
-Greg Kinnear	You've Got Mail
-Parker Posey	You've Got Mail
-Meg Ryan	You've Got Mail
-
 4-----------------------------------
 MATCH ({name: "Keanu Reeves"})-[ :ACTED_IN]->()<-[ :ACTED_IN]-(c), ({name: "Tom Hanks"})-[ :ACTED_IN]->()<-[ :ACTED_IN]-(c) RETURN c.name
- 
-c.name
-Hugo Weaving
-Hugo Weaving
-Hugo Weaving
-Charlize Theron
+
 
 5-----------------------------------
 MATCH ()-[r :ACTED_IN]->({title : "The Matrix"}) RETURN r.roles
  
-r.roles
-[Emil]
-[Agent Smith]
-[Morpheus]
-[Trinity]
-[Neo]
 
 $Activite4-----------------------------------
 1-----------------------------------
